@@ -30,7 +30,7 @@ const error = async (errOPj) => {
     try {
         let msg;
         if (errOPj.status == 500) {
-
+            
             msg = chalk.red.bold('internal error!!');
 
         } else {
