@@ -13,13 +13,22 @@ const argv = yargs
             alias: 'r',
             demandOption: true,
             type: 'string'
+        },
+        mainPath: {
+            describe: 'new router main path',
+            alias: 'p',
+            demandOption: true,
+            type: 'string'
         }
     }, async (argv) => {
         try{
+            
             //first  ==> check for express and pachage.json and run npm init if needed
-            const check = await Init.checkForExpress(argv.pwd);
+            await Init.checkForExpress(argv.pwd);
             //console.log(check);
             //second ==> crete new router
+            await Init.addRouter(argv.pwd,argv.router,argv.mainPath);
+            
             
         }catch(err){
             if (!err.status) {
